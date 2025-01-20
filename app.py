@@ -2,13 +2,28 @@ import streamlit as st
 import pandas as pd
 import joblib
 
+# Add headings
+# Add an image
+# st.image(
+#     "https://vu.edu.pk/img/logo.png"
+# )
+st.markdown(
+    """
+    <div style="text-align: center;">
+        <img src="https://vu.edu.pk/img/logo.png" alt="Student Analysis"/>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+st.header("FYP - Student Performance Prediction")
+st.subheader("Upload your student dataset to analyze and predict outcomes")
+
 # Load the model, feature names, and LabelEncoder
 model = joblib.load('student_performance_model.pkl')
 feature_names = joblib.load('feature_names.pkl')
 label_encoder = joblib.load('label_encoder.pkl')  # Load the saved LabelEncoder
 
-# Streamlit app header
-st.title("Student Performance Prediction")
+
 
 # File uploader widget
 uploaded_file = st.file_uploader("Upload Student Data CSV", type=["csv"])
